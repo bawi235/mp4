@@ -1,2 +1,2 @@
-#Wed Mar 28 10:16:32 EDT 2018
+#Wed Mar 28 10:48:42 EDT 2018
 totalQueueLength=\ Number of total {@link hudson.model.Queue.BuildableItem}s that represents blocked builds.\n\n @deprecated as of 1.467\n      Use {@link \#queueLength}. Left as an alias here for backward compatibility.\n

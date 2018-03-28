@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="hudson.model.AutoCompleteSeederTest" time="0.003" tests="13" errors="0" skipped="0" failures="0">
+<testsuite name="hudson.model.AutoCompleteSeederTest" time="0" tests="13" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -69,7 +69,7 @@
   <testcase name="testAutoCompleteSeeds[7]" classname="hudson.model.AutoCompleteSeederTest" time="0"/>
   <testcase name="testAutoCompleteSeeds[8]" classname="hudson.model.AutoCompleteSeederTest" time="0"/>
   <testcase name="testAutoCompleteSeeds[9]" classname="hudson.model.AutoCompleteSeederTest" time="0"/>
-  <testcase name="testAutoCompleteSeeds[10]" classname="hudson.model.AutoCompleteSeederTest" time="0.003"/>
+  <testcase name="testAutoCompleteSeeds[10]" classname="hudson.model.AutoCompleteSeederTest" time="0"/>
   <testcase name="testAutoCompleteSeeds[11]" classname="hudson.model.AutoCompleteSeederTest" time="0"/>
   <testcase name="testAutoCompleteSeeds[12]" classname="hudson.model.AutoCompleteSeederTest" time="0"/>
 </testsuite>

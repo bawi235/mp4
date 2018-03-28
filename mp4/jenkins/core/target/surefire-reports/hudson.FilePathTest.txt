@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: hudson.FilePathTest
 -------------------------------------------------------------------------------
-Tests run: 24, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 33.503 sec - in hudson.FilePathTest
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 36.238 sec - in hudson.FilePathTest
