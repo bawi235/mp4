@@ -69,6 +69,8 @@ import hudson.slaves.DumbSlave;
 import hudson.slaves.NodeProvisioner;
 import hudson.tasks.Shell;
 import org.jvnet.hudson.test.TestExtension;
+import org.xml.sax.SAXException;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.io.IOException;
@@ -620,7 +622,13 @@ public class ProjectTest {
         j.jenkins.setSecurityRealm(realm); 
         User user = realm.createAccount("John Smith", "password");
         SecurityContextHolder.getContext().setAuthentication(user.impersonate()); 
-        try{
+        tryDisable(project, auth, user);  //added by Bryan
+       assertTrue("Project should be disabled.", project.isDisabled());
+    }
+
+	public void tryDisable(FreeStyleProject project, GlobalMatrixAuthorizationStrategy auth, User user)
+			throws IOException, SAXException, Exception {
+		try{
             project.doDisable();
             fail("User should not have permission to build project");
         }
@@ -638,8 +646,7 @@ public class ProjectTest {
                 j.submit(form);
             }
         }
-       assertTrue("Project should be disabled.", project.isDisabled());
-    }
+	}
     
     @Test
     public void testDoEnable() throws Exception{
@@ -652,24 +659,7 @@ public class ProjectTest {
         User user = realm.createAccount("John Smith", "password");
         SecurityContextHolder.getContext().setAuthentication(user.impersonate()); 
         project.disable();
-        try{
-            project.doEnable();
-            fail("User should not have permission to build project");
-        }
-        catch(Exception e){
-            if(!(e.getClass().isAssignableFrom(AccessDeniedException2.class))){
-               fail("AccessDeniedException should be thrown.");
-            }
-        } 
-        auth.add(Job.READ, user.getId());
-        auth.add(Job.CONFIGURE, user.getId());
-        auth.add(Jenkins.READ, user.getId());
-        List<HtmlForm> forms = j.createWebClient().login(user.getId(), "password").goTo(project.getUrl()).getForms();
-        for(HtmlForm form:forms){
-            if("enable".equals(form.getAttribute("action"))){
-                j.submit(form);
-            }
-        }
+        tryDisable(project, auth, user);
        assertFalse("Project should be enabled.", project.isDisabled());
     }
     
